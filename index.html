@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rulkosify - Solusi Nomor Virtual</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+transition:0.3s;
+}
+
+body{
+background:#f1f5f9;
+color:#08175f;
+}
+
+/* CONTAINER */
+
+.container{
+width:92%;
+max-width:1300px;
+margin:auto;
+}
+
+/* HEADER */
+
+header{
+background:white;
+padding:18px 0;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo-box{
+width:55px;
+height:55px;
+border-radius:18px;
+background:linear-gradient(135deg,#005eff,#003dc7);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+font-weight:800;
+color:white;
+}
+
+.logo-text h2{
+font-size:30px;
+}
+
+.logo-text p{
+font-size:13px;
+color:#64748b;
+}
+
+.menu{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+.menu a{
+text-decoration:none;
+font-weight:600;
+color:#08175f;
+}
+
+/* DARK BUTTON */
+
+.toggle-dark{
+width:48px;
+height:48px;
+border-radius:15px;
+background:#005eff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+color:white;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* HERO */
+
+.hero{
+padding:90px 0;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.hero-text h1{
+font-size:72px;
+line-height:1.1;
+font-weight:800;
+margin-bottom:20px;
+}
+
+.hero-text span{
+color:#005eff;
+}
+
+.hero-text p{
+font-size:18px;
+line-height:2;
+color:#64748b;
+margin-bottom:35px;
+}
+
+.hero-buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.hero-buttons a{
+padding:17px 32px;
+border-radius:18px;
+text-decoration:none;
+font-weight:700;
+}
+
+.btn-primary{
+background:linear-gradient(135deg,#005eff,#003dc7);
+color:white;
+}
+
+.btn-secondary{
+background:white;
+border:2px solid #dbe7ff;
+color:#005eff;
+}
+
+.hero-image img{
+width:100%;
+border-radius:35px;
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* FEATURES */
+
+.features{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+margin-bottom:80px;
+}
+
+.card{
+background:white;
+padding:35px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.04);
+}
+
+.card .icon{
+font-size:40px;
+margin-bottom:18px;
+}
+
+.card h3{
+font-size:24px;
+margin-bottom:12px;
+}
+
+.card p{
+line-height:1.9;
+color:#64748b;
+}
+
+/* PRICE */
+
+.price-section{
+padding:60px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:40px;
+}
+
+.section-title h2{
+font-size:55px;
+margin-bottom:10px;
+}
+
+.section-title p{
+font-size:18px;
+color:#64748b;
+}
+
+.price-table{
+background:white;
+border-radius:30px;
+overflow:hidden;
+box-shadow:0 15px 35px rgba(0,0,0,0.05);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+.price-table th{
+background:linear-gradient(135deg,#005eff,#003dc7);
+color:white;
+padding:24px;
+font-size:20px;
+}
+
+.price-table td{
+padding:22px;
+font-size:18px;
+}
+
+.price-table tr{
+border-bottom:1px solid #edf2ff;
+}
+
+.price{
+color:#005eff;
+font-weight:700;
+}
+
+/* FORM */
+
+.form-section{
+padding:80px 0;
+}
+
+.form-box{
+background:white;
+padding:45px;
+border-radius:30px;
+box-shadow:0 15px 35px rgba(0,0,0,0.05);
+}
+
+.form-box h2{
+font-size:42px;
+margin-bottom:25px;
+}
+
+.form-group{
+margin-bottom:20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+width:100%;
+padding:18px;
+border-radius:16px;
+border:2px solid #dbe7ff;
+font-size:16px;
+outline:none;
+}
+
+.form-group textarea{
+height:130px;
+resize:none;
+}
+
+.submit-btn{
+width:100%;
+padding:18px;
+border:none;
+border-radius:18px;
+background:linear-gradient(135deg,#005eff,#003dc7);
+color:white;
+font-size:20px;
+font-weight:700;
+cursor:pointer;
+}
+
+/* PENJELASAN */
+
+.penjelasan-section{
+padding:80px 0;
+}
+
+.penjelasan-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+margin-top:40px;
+}
+
+.penjelasan-card{
+background:white;
+padding:35px;
+border-radius:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.04);
+}
+
+.penjelasan-icon{
+width:60px;
+height:60px;
+border-radius:18px;
+background:linear-gradient(135deg,#005eff,#3b82f6);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:white;
+margin-bottom:20px;
+}
+
+.penjelasan-card h3{
+font-size:30px;
+margin-bottom:18px;
+color:#005eff;
+}
+
+.penjelasan-card p,
+.penjelasan-card li{
+line-height:2;
+font-size:16px;
+color:#555;
+}
+
+.penjelasan-card ul{
+padding-left:18px;
+}
+
+.penjelasan-bottom{
+margin-top:40px;
+background:linear-gradient(135deg,#005eff,#003dc7);
+padding:55px;
+border-radius:35px;
+text-align:center;
+color:white;
+}
+
+.penjelasan-bottom h2{
+font-size:45px;
+margin-bottom:18px;
+}
+
+.penjelasan-bottom p{
+line-height:2;
+font-size:18px;
+color:#e8efff;
+}
+
+/* ABOUT */
+
+.about{
+padding-bottom:80px;
+}
+
+.about-box{
+background:white;
+padding:45px;
+border-radius:30px;
+box-shadow:0 15px 35px rgba(0,0,0,0.05);
+}
+
+.about-box h2{
+font-size:42px;
+margin-bottom:20px;
+}
+
+.about-box p{
+line-height:2;
+font-size:17px;
+color:#64748b;
+}
+
+/* FOOTER */
+
+footer{
+background:white;
+padding:40px;
+text-align:center;
+color:#64748b;
+margin-top:50px;
+}
+
+/* DARK MODE */
+
+.dark-mode{
+background:#0f172a;
+color:white;
+}
+
+.dark-mode header,
+.dark-mode .card,
+.dark-mode .price-table,
+.dark-mode .form-box,
+.dark-mode .about-box,
+.dark-mode .penjelasan-card,
+.dark-mode footer{
+background:#1e293b;
+color:white;
+}
+
+.dark-mode .menu a,
+.dark-mode .logo-text p,
+.dark-mode .about-box p,
+.dark-mode .card p,
+.dark-mode .penjelasan-card p,
+.dark-mode .penjelasan-card li{
+color:#cbd5e1;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select{
+background:#0f172a;
+border:2px solid #334155;
+color:white;
+}
+
+.dark-mode table tr{
+border-bottom:1px solid #334155;
+}
+
+.dark-mode .btn-secondary{
+background:#1e293b;
+border:2px solid #334155;
+color:white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+.penjelasan-grid{
+grid-template-columns:1fr;
+}
+
+.hero-text h1{
+font-size:50px;
+}
+
+.section-title h2{
+font-size:38px;
+}
+
+.penjelasan-bottom h2{
+font-size:32px;
+}
+
+.menu{
+gap:15px;
+flex-wrap:wrap;
+justify-content:flex-end;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+
+<div class="logo-box">R</div>
+
+<div class="logo-text">
+<h2>Rulkosify</h2>
+<p>Solusi Nomor Virtual Terpercaya</p>
+</div>
+
+</div>
+
+<div class="menu">
+
+<a href="#">Beranda</a>
+<a href="#harga">Harga</a>
+<a href="#order">Order</a>
+<a href="#penjelasan">Penjelasan</a>
+
+<div class="toggle-dark" onclick="toggleDarkMode()">
+🌙
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero container">
+
+<div class="hero-text">
+
+<h1>
+DAFTAR HARGA <br>
+<span>NOKOS WA</span>
+</h1>
+
+<p>
+Nomor virtual terpercaya untuk kebutuhan WhatsApp, OTP digital, bisnis online, media sosial, dan verifikasi akun modern.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#order" class="btn-primary">
+Order Sekarang
+</a>
+
+<a href="#harga" class="btn-secondary">
+Lihat Harga
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://files.catbox.moe/u5y0z6.jpg">
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="container features">
+
+<div class="card">
+<div class="icon">⚡</div>
+<h3>Proses Cepat</h3>
+<p>Aktivasi instan tanpa ribet.</p>
+</div>
+
+<div class="card">
+<div class="icon">🛡️</div>
+<h3>Aman</h3>
+<p>Privasi lebih terjaga dan terpercaya.</p>
+</div>
+
+<div class="card">
+<div class="icon">💬</div>
+<h3>Support 24/7</h3>
+<p>Admin aktif membantu kapan saja.</p>
+</div>
+
+</section>
+
+<!-- PRICE -->
+
+<section class="price-section container" id="harga">
+
+<div class="section-title">
+
+<h2>Daftar Harga Nokos</h2>
+<p>Harga nomor virtual berbagai negara</p>
+
+</div>
+
+<div class="price-table">
+
+<table>
+
+<tr>
+<th>Negara</th>
+<th>Layanan</th>
+<th>Harga</th>
+</tr>
+
+<tr>
+<td>🇮🇩 Indonesia</td>
+<td>WhatsApp</td>
+<td class="price">Rp 7.000</td>
+</tr>
+
+<tr>
+<td>🇲🇾 Malaysia</td>
+<td>WhatsApp</td>
+<td class="price">Rp 10.000</td>
+</tr>
+
+<tr>
+<td>🇹🇭 Thailand</td>
+<td>WhatsApp</td>
+<td class="price">Rp 10.000</td>
+</tr>
+
+<tr>
+<td>🇰🇭 Cambodia</td>
+<td>WhatsApp</td>
+<td class="price">Rp 15.000</td>
+</tr>
+
+<tr>
+<td>🇹🇱 Timor Leste</td>
+<td>WhatsApp</td>
+<td class="price">Rp 20.000</td>
+</tr>
+
+<tr>
+<td>🇧🇳 Brunei</td>
+<td>WhatsApp</td>
+<td class="price">Rp 10.000</td>
+</tr>
+
+<tr>
+<td>🇵🇭 Filipina</td>
+<td>WhatsApp</td>
+<td>Not For Sale Yet</td>
+</tr>
+
+<tr>
+<td>🇲🇲 Myanmar</td>
+<td>WhatsApp</td>
+<td class="price">Rp 20.000</td>
+</tr>
+
+<tr>
+<td>🇻🇳 Vietnam</td>
+<td>WhatsApp</td>
+<td class="price">Rp 10.000</td>
+</tr>
+
+<tr>
+<td>🇱🇦 Laos</td>
+<td>WhatsApp</td>
+<td class="price">Rp 15.000</td>
+</tr>
+
+<tr>
+<td>🇸🇬 Singapore</td>
+<td>WhatsApp</td>
+<td class="price">Rp 230.000</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- FORM -->
+
+<section class="form-section container" id="order">
+
+<div class="form-box">
+
+<h2>Form Pemesanan</h2>
+
+<form id="orderForm">
+
+<div class="form-group">
+<input type="text" placeholder="Nama Lengkap" required>
+</div>
+
+<div class="form-group">
+<input type="number" placeholder="Nomor WhatsApp" required>
+</div>
+
+<div class="form-group">
+
+<select required>
+
+<option value="">Pilih Negara Nokos</option>
+
+<option>🇮🇩 Indonesia - Rp 7.000</option>
+<option>🇲🇾 Malaysia - Rp 10.000</option>
+<option>🇹🇭 Thailand - Rp 10.000</option>
+<option>🇰🇭 Cambodia - Rp 15.000</option>
+<option>🇹🇱 Timor Leste - Rp 20.000</option>
+<option>🇧🇳 Brunei - Rp 10.000</option>
+<option>🇵🇭 Filipina - Not For Sale Yet</option>
+<option>🇲🇲 Myanmar - Rp 20.000</option>
+<option>🇻🇳 Vietnam - Rp 10.000</option>
+<option>🇱🇦 Laos - Rp 15.000</option>
+<option>🇸🇬 Singapore - Rp 230.000</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<select required>
+
+<option>SeaBank</option>
+<option>Bank BRI</option>
+<option>E-Wallet</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+<textarea placeholder="Catatan tambahan"></textarea>
+</div>
+
+<button type="submit" class="submit-btn">
+✔ Kirim Pesanan
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- PENJELASAN -->
+
+<section class="penjelasan-section container" id="penjelasan">
+
+<div class="section-title">
+
+<h2>Apa Itu NOKOS?</h2>
+
+<p>Solusi nomor virtual modern untuk kebutuhan digital Anda</p>
+
+</div>
+
+<div class="penjelasan-grid">
+
+<div class="penjelasan-card">
+<div class="penjelasan-icon">📱</div>
+<h3>Pengertian NOKOS</h3>
+<p>
+NOKOS atau Nomor Kosong adalah nomor virtual digital yang digunakan untuk menerima OTP dan verifikasi akun tanpa kartu SIM fisik.
+</p>
+</div>
+
+<div class="penjelasan-card">
+<div class="penjelasan-icon">⚡</div>
+<h3>Fungsi NOKOS</h3>
+<ul>
+<li>Verifikasi akun WhatsApp</li>
+<li>Membuat akun tambahan</li>
+<li>Kebutuhan bisnis online</li>
+<li>Registrasi aplikasi digital</li>
+<li>Memisahkan akun pribadi & kerja</li>
+</ul>
+</div>
+
+<div class="penjelasan-card">
+<div class="penjelasan-icon">🌐</div>
+<h3>Jenis NOKOS</h3>
+<ul>
+<li><b>VoIP</b> — Nomor berbasis internet</li>
+<li><b>Temporary</b> — Nomor sementara OTP</li>
+<li><b>Cloud Number</b> — Nomor digital modern</li>
+<li><b>eSIM Digital</b> — Fleksibel & praktis</li>
+</ul>
+</div>
+
+<div class="penjelasan-card">
+<div class="penjelasan-icon">🔥</div>
+<h3>Kelebihan NOKOS</h3>
+<ul>
+<li>Tanpa kartu SIM fisik</li>
+<li>Proses cepat & praktis</li>
+<li>Bisa digunakan multi device</li>
+<li>Cocok untuk bisnis online</li>
+<li>Modern & fleksibel</li>
+</ul>
+</div>
+
+<div class="penjelasan-card">
+<div class="penjelasan-icon">💙</div>
+<h3>Kenapa Rulkosify?</h3>
+<ul>
+<li>Fast respon</li>
+<li>Harga terjangkau</li>
+<li>Layanan terpercaya</li>
+<li>Support 24 jam</li>
+<li>Proses instan</li>
+</ul>
+</div>
+
+<div class="penjelasan-card">
+<div class="penjelasan-icon">🛡️</div>
+<h3>Keamanan Penggunaan</h3>
+<p>
+Gunakan nomor secara normal dan aktifkan verifikasi tambahan agar akun tetap aman digunakan.
+</p>
+</div>
+
+</div>
+
+<div class="penjelasan-bottom">
+
+<h2>Rulkosify — Solusi Nomor Virtual</h2>
+
+<p>
+Nikmati layanan NOKOS / OTP dengan proses cepat, aman, dan terpercaya.
+</p>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about container">
+
+<div class="about-box">
+
+<h2>Tentang Rulkosify</h2>
+
+<p>
+Rulkosify menyediakan layanan nomor virtual modern untuk kebutuhan verifikasi akun, OTP digital, bisnis online, media sosial, dan WhatsApp.
+</p>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+© 2026 Rulkosify - Solusi Nomor Virtual Terpercaya
+</footer>
+
+<script>
+
+/* FORM */
+
+document.getElementById("orderForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let nama = document.querySelector('input[type="text"]').value;
+let nomor = document.querySelector('input[type="number"]').value;
+let negara = document.querySelectorAll('select')[0].value;
+let pembayaran = document.querySelectorAll('select')[1].value;
+let catatan = document.querySelector('textarea').value;
+
+let pesan = `*RULKOSIFY ORDER*
+
+👤 Nama: ${nama}
+
+📱 Nomor WA:
+${nomor}
+
+🌍 Negara Nokos:
+${negara}
+
+💳 Pembayaran:
+${pembayaran}
+
+📝 Catatan:
+${catatan || "-"}
+
+Terima kasih 🚀`;
+
+let url =
+"https://wa.me/6283194151583?text=" + encodeURIComponent(pesan);
+
+window.open(url, "_blank");
+
+});
+
+/* DARK MODE */
+
+function toggleDarkMode(){
+
+document.body.classList.toggle("dark-mode");
+
+let tombol = document.querySelector(".toggle-dark");
+
+if(document.body.classList.contains("dark-mode")){
+
+tombol.innerHTML = "☀️";
+
+localStorage.setItem("darkmode","on");
+
+}else{
+
+tombol.innerHTML = "🌙";
+
+localStorage.setItem("darkmode","off");
+
+}
+
+}
+
+if(localStorage.getItem("darkmode") === "on"){
+
+document.body.classList.add("dark-mode");
+
+document.querySelector(".toggle-dark").innerHTML = "☀️";
+
+}
+
+</script>
+
+</body>
+</html>
